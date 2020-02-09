@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pt-br" lang="pt-br">
+  <head>
+    <title>Data e hora no documento</title>
+    <meta name="Author" content="Gabriel Barros | www.gabrielbarros.net" />    
+  </head>
+      
+  <body onload="Tempo()">
+    <div style="position: absolute; top: 90%; left: 90%; font: 13px Arial" id="lugar">Tempo</div>
+
+    <script type="text/javascript">
+    <!--
+      /********************************************************************
+       AUTOR: GABRIEL BARROS
+       Visite meu site: www.gabrielbarros.net
+       Dúvidas? Fale comigo: www.gabrielbarros.net/contato
+      *********************************************************************
+      
+      Com este script você insere a hora do PC do usuário na sua página web
+      Porém, a hora não é estática, ou seja, ela é atualizada de um em um segundo
+      Para alterar a posição da hora, edite os parâmetros top e left da tag <div> em porcentagem ou pixels
+      Exemplo: <div style="position: absolute; top: 125px; left: 265px; font: 13px Verdana" id="lugar">Tempo</div>
+      É um efeito bastante interessante, pois dá uma sensação de que você está realmente online :)
+      Se você estiver afim de inserir a hora na barra de títulos e na barra de status, adicione as
+      seguintes linhas de código embaixo de "document.getElementById("lugar").innerHTML = hora + ":" + minuto + ":" + segundo;"
+      
+        document.title = hora + ":" + minuto + ":" + segundo;  // hora no título do documento
+        window.status = hora + ":" + minuto + ":" + segundo;   // hora na barra de status
+      
+      
+      */
+      
+      
+      function Tempo(){
+        horario = new Date()
+        hora = horario.getHours()
+        minuto = horario.getMinutes()
+        segundo = horario.getSeconds()
+        if (hora < 10) {
+          hora = "0" + hora
+        }
+        if (minuto < 10) {
+          minuto = "0" + minuto
+        }
+        if (segundo < 10) {
+          segundo = "0" + segundo
+        }
+        document.getElementById("lugar").innerHTML = hora + ":" + minuto + ":" + segundo;  // hora no documento
+        // barra de título
+        // barra de status
+      }
+      window.setInterval("Tempo()", 1000)
+    //-->
+    </script>
+  </body>
+</html>

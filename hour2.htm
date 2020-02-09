@@ -1,0 +1,33 @@
+<html>
+<head>
+    <title>::: O Objeto Date:::</title>
+    <script type="text/javascript">
+        function atualizarDataHora()
+    var dataAtual = new Date();
+    var dia = dataAtual.getDate();
+    var diaSemana = getDiaExtenso(dataAtual.getDay());
+    var mes = getMesExtenso(data.getMonth());
+    var ano = dataAtual.getYear();
+    var hora = dataAtual.getHours();
+    var minuto = dataAtual.getMinutes();
+    var segundo = dataAtual.getSeconds();
+ 
+    var horaImprimivel = hora + ":" + minuto + ":" + segundo;
+    mostrarDataHora(horaImprimivel, diaSemana, dia, mes, ano);
+    setTimeOut("atualizarDataHora()", 1000);
+function getMesExtenso(mes){
+    return this.arrayMes[mes];
+    
+}
+
+
+
+    </script>
+</head>
+<body onload="atualizarDataHora()">
+    <div id="datahora"/>
+</body>
+</html>
+
+
+Read more: http://www.linhadecodigo.com.br/artigo/1003/entendendo-o-objeto-date-do-javascript.aspx#ixzz6CtwL7UjY

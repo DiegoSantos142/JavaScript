@@ -1,0 +1,105 @@
+<!-- By NxT -->
+
+<html>
+<head>
+<title>Teste</title>
+<body>
+
+<SCRIPT language="JavaScript">
+<!-- Hide this script from old browsers --
+/*
+This script came from the 24 hour JavaScripts Site
+located at http://www.javascripts.com. It is brought to
+you by Eric Jarvies, Lewis Sellers, Giuseppe Lombardo,
+Kurt Anderson, and David Medinets.
+*/
+var timerID = null;
+var timerRunning = false;
+// Called by both onLoad in BODY tag, and Resume button.
+function startclock ()
+{
+// Make sure the clock is stopped
+stopclock();
+time();
+}
+// Kills clock.
+function stopclock ()
+{
+if(timerRunning)
+clearTimeout(timerID);
+timerRunning = false;
+}
+function time ()
+{
+var now = new Date();
+var yr = now.getYear();
+var mName = now.getMonth() + 1;
+var dName = now.getDay() + 1;
+var dayNr = ((now.getDate()<10) ? "0" : "")+ now.getDate();
+var ampm = (now.getHours() >= 12) ? " P.M." : " A.M."
+var hours = now.getHours();
+hours = ((hours > 12) ? hours - 12 : hours);
+var minutes = ((now.getMinutes() < 10) ? ":0" : ":") + now.getMinutes();
+var seconds = ((now.getSeconds() < 10) ? ":0" : ":") + now.getSeconds();
+if(dName==1) Day = "Domingo";
+if(dName==2) Day = "Segunda-feira";
+if(dName==3) Day = "Terça-Feira";
+if(dName==4) Day = "Quarta-Feira";
+if(dName==5) Day = "Quinta-Feira";
+if(dName==6) Day = "Sexta-Feira";
+if(dName==7) Day = "Sábado";
+if(mName==1) Month="janeiro";
+if(mName==2) Month="fevereiro";
+if(mName==3) Month="março";
+if(mName==4) Month="abril";
+if(mName==5) Month="maio";
+if(mName==6) Month="junho";
+if(mName==7) Month="julho";
+if(mName==8) Month="agosto";
+if(mName==9) Month="setembro";
+if(mName==10) Month="outubro";
+if(mName==11) Month="novembro";
+if(mName==12) Month="dezembro";
+// String to display current date.
+var DayDateTime=(" "
++ "Seja Bem-Vindo ao CodigoFonte.Net!!!"  // mude aqui o seu texto
++ " "
++ Day
++ " "
++ dayNr
++ " "
++ Month
++ ", "
++ " "
++ yr
++ " "
++ hours
++ minutes
++ seconds
++ " "
++ ampm
+
+);
+// Displays Day-Date-Time on the staus bar.
+window.status=DayDateTime;
+timerID = setTimeout("time()",1000);
+timerRunning = true;
+}
+// Stops clock and clears status bar.
+function clearStatus()
+{
+if(timerRunning)
+clearTimeout(timerID);
+timerRunning = false;
+window.status=" "; 
+}
+
+setTimeout("startclock()",2500);
+
+// -- End Hiding Here -->
+</SCRIPT>
+
+</body>
+</html>
+
+
